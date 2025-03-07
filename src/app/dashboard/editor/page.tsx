@@ -15,8 +15,8 @@ const TextEditor: React.FC = () => {
 
   const handleSaveToDrive = async () => {
     try {
-      const response = await createLetter({ title, content });
-      // alert(`File uploaded! File ID: ${response.id}`);
+      await createLetter({ title, content });
+
       router.back()
 
       setTitle("");

@@ -67,7 +67,8 @@ export default function LoginPage() {
                     Sign in with Google
                 </button>
             <p className="mt-4 text-center">
-                Don't have an account? <Link href="/auth/signup" className="text-blue-500">Sign Up</Link>
+            <p>Don&apos;t have an account?</p>
+            <Link href="/auth/signup" className="text-blue-500">Sign Up</Link>
             </p>
         </div>
     );

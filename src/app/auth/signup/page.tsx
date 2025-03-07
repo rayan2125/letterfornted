@@ -4,8 +4,6 @@ import { useForm, Controller } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { BASE_URL } from "@/app/api/apiCollection";
 
 interface SignupFormInputs {
@@ -25,35 +23,20 @@ const signupSchema = Yup.object().shape({
 });
 
 export default function SignupPage() {
-    const { control, handleSubmit, formState: { errors } } = useForm<SignupFormInputs>({
+    const { control,formState: { errors } } = useForm<SignupFormInputs>({
         resolver: yupResolver(signupSchema),
     });
 
 
 
-    // useEffect(() => {
-    //     const fetchUser = async () => {
-    //         try {
-    //             const response = await axios.get("http://localhost:8070/api/user", { withCredentials: true });
-    //             console.log("User session:", response.data);
-                
-    //             if (response.data?.token) {
-    //                 localStorage.setItem("token", response.data.token); // Store JWT if returned
-    //             }
-    //         } catch (error) {
-    //             console.error("User session fetch error:", error);
-    //         }
-    //     };
-    
-    //     fetchUser();
-    // }, []);
+   
     
 
    
 
     const signInUser = async () => {
         try {
-            // window.location.href = "http://localhost:8070/auth/google";
+            
             window.location.href = `${BASE_URL}auth/google`;
         } catch (error) {
             console.error("Google Sign-in error:", error);

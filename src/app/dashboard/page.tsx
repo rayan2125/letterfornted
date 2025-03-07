@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { deleteLetter, fetchLetters, updateLetter } from "../api/services/apiServices";
@@ -33,8 +32,9 @@ const Page: React.FC = () => {
         const data = await fetchLetters();
         setLetters(data);
         setLoading(false);
-      } catch (error) {
-        setError("Failed to fetch letters");
+      } catch  {
+        console.error("Error fetching letters:",);
+        setError("Failed to fetch letters",);
         setLoading(false);
       }
     };
